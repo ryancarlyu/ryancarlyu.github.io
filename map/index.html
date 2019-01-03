@@ -5,7 +5,7 @@
       /* Set the size of the div element that contains the map */
       #map {
         height: 400px;  /* The height is 400 pixels */
-        width: 100%;  /* The width is the width of the web page */
+        width: 80%;  /* The width is the width of the web page */
        }
     </style>
   </head>
@@ -16,13 +16,10 @@
     <script>
 // Initialize and add the map
 function initMap() {
-  // The location of Uluru
-  var uluru = {lat: -25.344, lng: 131.036};
-  // The map, centered at Uluru
+  var office = {lat: 14.546982, lng: 121.047859};
   var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: uluru});
-  // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: uluru, map: map});
+      document.getElementById('map'), {zoom: 4, center: office});
+  var marker = new google.maps.Marker({position: office, map: map});
 }
     </script>
     <script async defer
