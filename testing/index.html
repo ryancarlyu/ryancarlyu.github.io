@@ -84,11 +84,11 @@
               disabled="true"/></td>
       </tr>
       <tr>
-        <td class="label">State</td>
+        <td class="label">Latitude</td>
         <td class="slimField"><input class="field"
-              id="administrative_area_level_1" disabled="true"/></td>
-        <td class="label">Zip code</td>
-        <td class="wideField"><input class="field" id="postal_code"
+              id="latitude" disabled="true"/></td>
+        <td class="label">Longitude</td>
+        <td class="wideField"><input class="field" id="longitude"
               disabled="true"/></td>
       </tr>
       <tr>
@@ -165,6 +165,20 @@
           });
         }
       }
+
+    // ADDED FROM STACKOVERFLOW
+    function GetLatlong()
+    {
+        var geocoder = new google.maps.Geocoder();
+
+        geocoder.geocode({ 'address': place }, function (results, status) {
+
+            if (status == google.maps.GeocoderStatus.OK) {
+                var latitude = results[0].geometry.location.lat();
+                var longitude = results[0].geometry.location.lng();
+
+            }
+        });
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpt8AeQKqSCY2itEH7vQ5fY8Ghr_-VSOE&libraries=places&callback=initAutocomplete"
         async defer></script>
