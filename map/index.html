@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <h1>Test</h1>
     <style>
-      /* Set the size of the div element that contains the map */
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
       #map {
-        height: 400px;  /* The height is 400 pixels */
-        width: 80%;  /* The width is the width of the web page */
-       }
+       position: absolute;
+       top: 0;
+       bottom: 0;
+       width: 100%;
+      }
     </style>
   </head>
   <body>
     <h3>Location</h3>
     <!--The div element for the map -->
     <div id="map"></div>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js'></script>
     <script>
-// Initialize and add the map
-function initMap() {
-  var office = {lat: 14.546982, lng: 121.047859};
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: office});
-  var marker = new google.maps.Marker({position: office, map: map});
-}
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=[YOUR_API_KEY]&callback=initMap">
+    mapboxgl.accessToken = 'pk.eyJ1IjoicnlhbmNhcmx5dSIsImEiOiJjam53cmNnbHgwbjJoM2twZ3M4a2h4MTQ5In0.8spmn4SxYcZK9-ZbSqwpmw'
+    var map = new mapboxgl.Map({
+      container: 'map', // container id
+      style: 'mapbox://styles/mapbox/light-v9', // stylesheet location
+      center: [-84.5, 38.05], // starting position
+      zoom: 12 // starting zoom
+    });
     </script>
   </body>
 </html>
